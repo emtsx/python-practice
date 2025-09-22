@@ -16,3 +16,22 @@ amount = input('お買上金額を入力してください。:')  # お買上金
 tax_rate = 0.1  # 消費税率
 is_food = input('以下の数値を入力してください。\n0) 食料品以外\n1) 食料品\n:')
 is_takeout = input('以下の数値を入力してください。\n0) 店内飲食\n1) 持ち帰り\n:')
+
+if is_food not in ['0', '1']:
+    print('不正な値です')
+    exit()
+
+if is_takeout not in ['0', '1']:
+    print('不正な値です')
+    exit()
+
+if is_food == '1' and is_takeout == '1':
+    tax_rate = 0.08
+else:
+    tax_rate = 0.10
+
+tax_price = int(int(amount) * (1 + tax_rate))
+print(f'税込み価格は{tax_price}円です')
+
+
+

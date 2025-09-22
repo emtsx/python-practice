@@ -8,5 +8,24 @@ Q7. 七五三判定プログラムを作成してください。
     プログラムを強制終了させるには、exit() を使います。
 """
 
-age = input("年齢を入力してください: ")
+age = int(input("年齢を入力してください: "))
+
+# 年齢チェック（対象外ならここで終了）
+if age not in (3, 5, 7):
+    print("七五三ではありません")
+    exit()
+
+# 対象年齢だった場合のみ性別を聞く
 gender = input("性別を f か m で入力してください。\nf) 女性\nm) 男性\n: ")
+
+if gender == 'f' and age == 7:
+    print("七歳女の子")
+elif gender == 'f' and age == 3:
+    print("三歳女の子")
+elif gender == 'm' and age == 5:
+    print("五歳男の子")
+elif gender in ('f', 'm'):
+    print("七五三ではありません")
+else:
+    print("性別の入力が正しくありません。f か m で入力してください。")
+    exit()

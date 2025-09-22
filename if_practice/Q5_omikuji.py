@@ -16,3 +16,14 @@ Q5. おみくじプログラムを作成してください。
 import random
 
 result = random.randint(1, 4)  # 1~4のランダムな整数を取得
+
+if result == 1:
+    fortune = "大吉"
+elif result == 2:
+    fortune = "中吉"
+elif result == 3:
+    fortune = "小吉"
+else: # result == 4
+    fortune = "凶"
+
+print(f"あなたの運勢は{fortune}です")

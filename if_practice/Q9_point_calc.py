@@ -21,4 +21,29 @@ Q9. お買い物付与ポイント判定プログラムを作成してくださ�
 
 browser_price = input("ブラウザからの購入金額を入力してください: ")
 appli_price = input("アプリからの購入金額を入力してください: ")
-has_credit_card = input("提携クレジットカードを所持していますか？(y/n): ")  # y でTrue, n でFalse
+has_credit_card = input("提携クレジットカードを所持していますか？(y/n): ")
+
+TOTAL_THRESHOLD = 10_000              # ポイント付与の閾値
+BROWSER_POINT_RATE = 0.01             # ブラウザ購入のポイント率
+APPLI_POINT_RATE = 0.02               # アプリ購入のポイント率
+CREDIT_CARD_EXTRA_RATE = 0.01         # クレカ所持時の「全体に+1%」ボーナス
+
+browser_amount = int(browser_price)
+appli_amount = int(appli_price)
+total_amount = browser_amount + appli_amount
+
+if total_amount >= TOTAL_THRESHOLD:
+    # 基本ポイント（小数点以下は切り捨て）
+    points = int(browser_amount * BROWSER_POINT_RATE) + int(appli_amount * APPLI_POINT_RATE)
+
+    # クレカ所持なら「全体金額の1%」を追加
+    if has_credit_card == 'y':
+        points += int(total_amount * CREDIT_CARD_EXTRA_RATE)
+
+    print(f"お買い上げ金額は {total_amount:,} 円です。")
+    print(f"獲得ポイントは {points:,} ポイントです。")
+else:
+    shortage = TOTAL_THRESHOLD - total_amount
+    print(f"お買い上げ金額は {total_amount:,} 円です。")
+    print("ポイントは付与されません。")
+    print(f"あと {shortage:,} 円でポイントが付与されます。")

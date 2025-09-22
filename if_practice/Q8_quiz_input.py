@@ -16,5 +16,9 @@ choice = input("pythonインタプリタを終了するコマンドを、選択�
                "1) exit()\n"
                "2) quit()\n"
                "3) close()\n"
-               "4) break()\n"
-               "数字を入力してください:")
+                   "4) break()\n"
+                   "数字を入力してください:")
+if choice == "2":
+    print("正解です！")
+else:
+    print("不正解です。正解は 2) quit() です。")

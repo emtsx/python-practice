@@ -47,23 +47,24 @@ print(doublekaito)
 
 
 #-----ここから続きやる-----
-unit.insert(3, "ファン代表")    # insert
-print(unit)
+TJ=["Chaka","Umi","Shime","Noel","Shizu","Genta","Traja"]
+TJ.insert(6, "Machu")    # insert
+print(TJ)
 
-last = unit.pop()                # pop
-print(last, unit)
+last = TJ.pop()                # pop (末尾の要素を取り出して削除)
+print(last, TJ)　#出力：Traja ['Chaka', 'Umi', 'Shime', 'Noel', 'Shizu', 'Genta', 'Machu']
 
-# ------------------------------
+# -------r-----------------------
 # 3. 削除系 (remove, del, clear)
 # ------------------------------
-unit.remove("ファン代表")
-print(unit)
+TJ.remove("Traja")  # remove (値を指定して削除)
+print(TJ)
 
 del unit[0]   # インデックス指定で削除
-print(unit)
+print(TJ)
 
-unit.clear()
-print(unit)
+TJ.clear() # clear (全削除)
+print(TJ)
 
 # ------------------------------
 # 4. 検索 (index, count, in)
